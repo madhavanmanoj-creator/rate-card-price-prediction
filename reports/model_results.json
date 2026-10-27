@@ -1,0 +1,80 @@
+{
+  "selected_model": "Ridge",
+  "seed": 42,
+  "train_lanes": 1056,
+  "test_lanes": 240,
+  "cv_table": [
+    {
+      "model": "Ridge",
+      "cv_mae_log": 0.191,
+      "mae_std": 0.163,
+      "cv_r2": 0.899
+    },
+    {
+      "model": "Gradient boosting",
+      "cv_mae_log": 0.262,
+      "mae_std": 0.256,
+      "cv_r2": 0.791
+    },
+    {
+      "model": "Random forest",
+      "cv_mae_log": 0.274,
+      "mae_std": 0.279,
+      "cv_r2": 0.849
+    },
+    {
+      "model": "Baseline (median)",
+      "cv_mae_log": 1.449,
+      "mae_std": 0.873,
+      "cv_r2": -0.707
+    }
+  ],
+  "tuned_cv_mae": {
+    "Ridge": 0.1883,
+    "Random forest": 0.2721,
+    "Gradient boosting": 0.241
+  },
+  "best_params": {
+    "Ridge": {
+      "model__alpha": 3
+    },
+    "Random forest": {
+      "model__max_depth": null,
+      "model__min_samples_leaf": 1,
+      "model__n_estimators": 200
+    },
+    "Gradient boosting": {
+      "model__learning_rate": 0.05,
+      "model__max_depth": 2,
+      "model__n_estimators": 300
+    }
+  },
+  "test": {
+    "Baseline (median)": {
+      "mae_log": 1.4381328675703815,
+      "r2_log": -0.3584861040720164,
+      "median_abs_pct_error": 39.22096667266059
+    },
+    "Ridge": {
+      "mae_log": 0.10842710100915741,
+      "r2_log": 0.9952883809470634,
+      "median_abs_pct_error": 9.298194482663089
+    }
+  },
+  "test_mae_ci95": [
+    0.0993,
+    0.1185
+  ],
+  "error_by_product": [
+    {
+      "product_code": "D",
+      "lanes": 162,
+      "median_abs_pct_error": 9.3
+    },
+    {
+      "product_code": "I",
+      "lanes": 78,
+      "median_abs_pct_error": 9.3
+    }
+  ]
+}
